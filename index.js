@@ -11,6 +11,10 @@ const cors=  require("cors");
 const app = express()
 
 const { userRouter }= require("./routes/user.route")
+const {productRouter} = require("./routes/product.route")
+// const { cartRouter } = require("./routes/cart.route")
+// const {orderRouter } = require("./routes/order.route")
+// const { categoryRouter } = require("./routes/category.route")
 
 
 app.use(express.json())
@@ -23,6 +27,10 @@ app.get("/", (req,res) =>{
 })
 
 app.use("/user",userRouter)
+app.use("/product",productRouter)
+// app.use("/cart", cartRouter)
+// app.use("/order", orderRouter)
+// app.use("/categotry", categoryRouter)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
